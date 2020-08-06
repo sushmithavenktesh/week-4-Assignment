@@ -1,25 +1,24 @@
-#!/usr/bin/env bash
+#!/usr/bin/bash
 
 echo "[let us know the number of files in current dirctory]"
 
 function input {
 	echo "enter the num of files in the current directory"
-	read guess
-    files=$(ls -1 | wc -l)
+	read num
+    read=$(ls -1 | wc -l)
 }
 
-ask
+requestnumber
 
-while [[ $guess -ne $files ]]
+while [[ $num -ne $read ]]
 do
-	if [[ $guess -lt $files ]] 
+	if [[ $num -lt $read ]] 
 	then
 		echo "Too low"
 	else
 		echo "Too high"
 	fi
-	ask
+	requestnumber
 done
 
-echo "Congratulations , number of filesin directory:"
-echo "---" && ls -1
+echo "Congratulations , number of files in directory:"
